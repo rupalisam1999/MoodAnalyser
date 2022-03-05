@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MoodAnalyser.MoodAnalyzerCustomExceptions;
 
 namespace MoodAnalyser
 {
@@ -16,6 +17,10 @@ namespace MoodAnalyser
                 {
                     throw new NullReferenceException();
                 }
+                if (moodMessage.Equals(string.Empty))
+                {
+                    throw new MoodAnalyzerCustomExceptions((ExceptionType)1, "Message Entered in Empty");
+                }
 
                 if (moodMessage.ToLower().Contains("SAD"))
                 {
@@ -27,9 +32,9 @@ namespace MoodAnalyser
                     return "HAPPY";
                 }
             }
-            catch(NullReferenceException ex)
+            catch(Exception ex)
             {
-                return "HAPPY";
+                return ex.Message;
             }
             
         }
