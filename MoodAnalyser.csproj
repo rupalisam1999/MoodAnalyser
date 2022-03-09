@@ -5,4 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="MoodAnalyzerTesting\**" />
+    <EmbeddedResource Remove="MoodAnalyzerTesting\**" />
+    <None Remove="MoodAnalyzerTesting\**" />
+  </ItemGroup>
+
 </Project>
